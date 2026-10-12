@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Inventory Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>📦 Product Inventory Manager</h1>
+    <p class="subtitle">Built with TypeScript &middot; Compiled to JavaScript &middot; Hosted on GitHub Pages</p>
+  </header>
+
+  <main class="container">
+    <!-- ---------- Dashboard cards ---------- -->
+    <section class="summary" aria-label="Inventory summary">
+      <article class="card">
+        <h3>Products</h3>
+        <span id="stat-products">0</span>
+      </article>
+      <article class="card">
+        <h3>Total Units</h3>
+        <span id="stat-units">0</span>
+      </article>
+      <article class="card">
+        <h3>Stock Value</h3>
+        <span id="stat-value">₹0</span>
+      </article>
+      <article class="card warning">
+        <h3>Low Stock</h3>
+        <span id="stat-low">0</span>
+      </article>
+    </section>
+
+    <!-- ---------- Add product form ---------- -->
+    <section class="panel">
+      <h2>Add a Product</h2>
+      <form id="product-form" autocomplete="off">
+        <div class="field">
+          <label for="name">Product name</label>
+          <input type="text" id="name" placeholder="e.g. Wireless Mouse" required />
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" required></select>
+        </div>
+
+        <div class="field">
+          <label for="price">Unit price (₹)</label>
+          <input type="number" id="price" min="0" step="0.01" placeholder="0.00" required />
+        </div>
+
+        <div class="field">
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" min="0" step="1" placeholder="0" required />
+        </div>
+
+        <button type="submit" class="btn primary">Add Product</button>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <!-- ---------- Inventory table ---------- -->
+    <section class="panel">
+      <div class="toolbar">
+        <h2>Inventory</h2>
+        <div class="toolbar-controls">
+          <input type="search" id="search" placeholder="Search by name…" />
+          <select id="filter-category"></select>
+          <button type="button" id="clear-all" class="btn danger">Clear All</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="product-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>TypeScript Assignment &mdash; Interfaces, Functions, Scope &amp; Compilation</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
